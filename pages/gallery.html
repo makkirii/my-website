@@ -17,22 +17,20 @@
     <link rel="stylesheet" href="../styles/footer.css">
 
 <style>
-/* gallery */
 *{
 box-sizing: border-box;
 }
 body{
-margin: 0;
-background-color:aliceblue;
-display:flex;
 align-items: center;
 flex-direction: column;
-font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+margin: 0;
+width: 100%;
 }
-.container{
+.containerr{
 padding: 0 20px;
 display: flex;
 width: 100%;
+
 }
 .slide{
 height: 80vh;
@@ -62,6 +60,7 @@ flex: 10;
 opacity: 1;
 transition: opacity 0.3s ease-in 0.4s;
 }
+</style>
 
 </head>
 
@@ -79,9 +78,9 @@ transition: opacity 0.3s ease-in 0.4s;
 
                     <li><a href="../index.html">Главная</a></li>
 
-                    <li><a href="about.html" class="active">О нас</a></li>
+                    <li><a href="about.html">О нас</a></li>
 
-                    <li><a href="gallery.html">Галерея</a></li>
+                    <li><a href="gallery.html" class="active">Галерея</a></li>
 
                     <li><a href="contact.html">Контакты</a></li>
 
@@ -92,25 +91,22 @@ transition: opacity 0.3s ease-in 0.4s;
         </div>
 
     </header>
-
-<div class="container">
-<div class="slide active" style="background-image: url('../images/');">
+<div class="containerr"> 
+<div class="slide active" style="background-image: url('../images/image1.jpg');">
 <h3>"Картинка 1"</h3>
 </div>
-<div class="slide " style="background-image: url('../images/image1.jpg');">
+<div class="slide" style="background-image: url('../images/image2.jpg');">
 <h3>"Картинка 2"</h3>
 </div>
-<div class="slide" style="background-image: url('../images/image2.jpg');">
+<div class="slide" style="background-image: url('../images/image3.jpg');">
 <h3>"Картинка 3"</h3>
 </div>
-<div class="slide" style="background-image: url('../images/image3.jpg');">
+<div class="slide" style="background-image: url('../images/image4.jpg');">
 <h3>"Картинка 4"</h3>
 </div>
-<div class="slide" style="background-image: url('../images/image4.jpg');">
+<div class="slide" style="background-image: url('../images/image5.avif');">
 <h3>"Картинка 5"</h3>
 </div>
-<div class="slide" style="background-image: url('../images/image5.avif');">
-<h3>"Картинка 6"</h3>
 </div>
 
    <footer class="site-footer">
@@ -132,6 +128,22 @@ slides.forEach(s => s.classList.remove('active'));
 // Добавляем класс active к текущему слайду
 slide.classList.add('active');
 });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Сайт полностью загружен');
+    
+    // Анимация для карточек
+    const cards = document.querySelectorAll('.feature-card');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+        
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 100);
+    });
 });
 </script>
 </body>
